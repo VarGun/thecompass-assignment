@@ -171,7 +171,6 @@ export default {
   min-height: 100vh;
   *{
     background: #ffffff;
-
     font-family: "Pretendard";
     font-style: normal;
     font-weight: 400;

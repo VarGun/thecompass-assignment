@@ -33,12 +33,10 @@ export default {
     onChangeHandler(event) {
       this.searchText = event.target.value;
     },
-
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .SearchBar {
   width: 480px;

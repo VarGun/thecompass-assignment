@@ -89,7 +89,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .TrainerCard {
   display: flex;
@@ -97,10 +96,11 @@ export default {
   padding: 16px;
   gap: 16px;
 }
+
+// font style
 #textBold {
   font-weight: 700;
 }
-
 #textBigBold {
   font-weight: 700;
   font-size: 18px;
@@ -108,6 +108,7 @@ export default {
 #textGrey {
   color: #98a5b3;
 }
+
 .TrainerInfo {
   flex: 1;
   height: 160px;

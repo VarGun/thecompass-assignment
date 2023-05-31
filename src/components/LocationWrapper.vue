@@ -32,7 +32,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .LocationWrapper {
   width: 480px;
@@ -57,6 +56,7 @@ export default {
   }
 }
 
+// font style
 .TextOrange {
   color: #ff8000;
 }

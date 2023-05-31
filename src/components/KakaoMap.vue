@@ -11,8 +11,6 @@ export default {
       map: null,
     };
   },
-  setup() {},
-  created() {},
   mounted() {
     if (window.kakao && window.kakao.maps) {
       this.loadMap();
