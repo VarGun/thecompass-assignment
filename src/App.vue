@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <MainHeader class="Header"  />
+    <MainHeader class="Header" :setOpenModal="setOpenModal" :openModal="openModal"/>
     <div id="content">
-      <KakaoMap id="kMap" @click="console.log(count)" />
+      <KakaoMap id="kMap" />
+      <UserModal :setOpenModal="setOpenModal" v-show="openModal" id="UserModal"/>
+
       <div id="sideBar">
         <SearchBar
           @update-searchName="setSearchName"
@@ -81,6 +83,7 @@ import FilterSetting from "./components/FilterSetting.vue";
 import TrainerCard from "@/components/TrainerCard.vue";
 import NoResult from "@/components/NoResult.vue";
 import KakaoMap from "@/components/KakaoMap.vue";
+import UserModal from "@/components/UserModal.vue";
 import axios from "axios";
 export default {
   name: "app",
@@ -94,12 +97,12 @@ export default {
       count: 1,
       endPage:1,
       hoverPrevious: false,
-      hoverNext: false
+      hoverNext: false,
+      openModal: false
     };
   },
   created() {
     this.fetchData();
-    console.log(this.count);
   },
   components: {
     SearchBar,
@@ -109,6 +112,7 @@ export default {
     TrainerCard,
     NoResult,
     KakaoMap,
+    UserModal
   },
   methods: {
     fetchData() {
@@ -124,16 +128,13 @@ export default {
                 `Token ` + `9d8443df0dbd0864511362bcd7c8ea52daf7e481`,
             },
           }
-        ) // 해당 url에서 제공하는 데이터를 가져옴.
+        )
         .then((response) => {
-          console.log(response.data.count);
           this.count = response.data.count;
           if(this.count !== 0){
             this.results = response.data.results;
           }
           this.endPage = Math.floor(this.count % 10 === 0 ? this.count / 10 : this.count / 10 + 1)
-          console.log("endPage : ",this.endPage)
-          console.log("pageNum : ",this.pageNum)
 
         })
         .catch(function (err) {
@@ -147,7 +148,6 @@ export default {
       if (this.pageNum < this.endPage) {
         this.pageNum += 1;
         this.fetchData();
-        console.log("gun")
       } else {
         alert("마지막 페이지입니다.");
       }
@@ -168,12 +168,16 @@ export default {
     },
     resetPageNum(){
       this.pageNum = 1;
+    },
+    setOpenModal(){
+      this.openModal = !this.openModal;
     }
   },
 };
 </script>
 
 <style lang="scss" scoped>
+
 #app {
   display: flex;
   flex-direction: column;
@@ -181,32 +185,38 @@ export default {
   min-width: 100vw;
   max-height: 100vh;
   min-height: 100vh;
-  *{
+
+  * {
     background: #ffffff;
     font-family: "Pretendard";
     font-style: normal;
     font-weight: 400;
     background: #ffffff;
   }
+}
 
-}
-.fade-enter-active,
-.fade-leave-active {
-  position: absolute;
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+//.fade-enter-active,
+//.fade-leave-active {
+//  position: absolute;
+//  transition: opacity 0.5s;
+//}
+//.fade-enter,
+//.fade-leave-to {
+//  opacity: 0;
+//}
+
 #content {
   position: relative;
   min-width: 100%;
   flex: 1;
+  #UserModal{
+    position: absolute;
+    top: -40px;
+    right: 20px;
+  }
   #kMap {
     position: absolute;
     min-height: 100vh;
-
     top: 0;
     left: 0;
     z-index: 0;
@@ -219,13 +229,15 @@ export default {
     z-index: 1;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
 
     #fadeWrapper {
       flex: 1;
-      max-height: 100vh;
+      max-height: 80vh;
       overflow-y: scroll;
       &::-webkit-scrollbar {
-        // hide scrollBar
         display: none;
       }
     }
@@ -238,6 +250,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0px 24px;
+
 
   > div {
     display: flex;

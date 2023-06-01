@@ -5,7 +5,7 @@
       <div class="searchOthers">피트니스 센터 찾기</div>
       <div class="searchOthers">PT스튜디오 찾기</div>
     </div>
-    <div id="userContainer">
+    <div id="userContainer" @click="setOpenModal" v-show="!openModal">
       <img src="../../public/Images/UserIcon.svg" />
       <div id="userName">김민수님</div>
     </div>
@@ -15,6 +15,7 @@
 <script>
 export default {
   name: "MainHeader",
+  props:['setOpenModal','openModal']
 };
 </script>
 
@@ -25,9 +26,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #ffffff;
   box-shadow: 0px 4px 8px rgba(218, 224, 230, 0.38);
-
 }
 #headerSearch {
   display: flex;
@@ -48,7 +47,6 @@ export default {
   display: flex;
   align-items: center;
   margin-right: 24px;
-
   gap: 16px;
   color: #3d454d;
 }

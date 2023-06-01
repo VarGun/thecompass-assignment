@@ -90,6 +90,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 #TrainerCard {
   display: flex;
   width: 480px;

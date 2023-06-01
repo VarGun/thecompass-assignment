@@ -24,7 +24,6 @@ export default {
     keyDownHandler: function (event) {
       if (event.keyCode === 13) {
         this.searchText = event.target.value;
-        console.log("child : ",this.searchText);
         this.$emit(`update-searchName`, this.searchText);
         this.resetPageNum();
         this.fetchData();
