@@ -1,18 +1,18 @@
 <template>
-  <div class="LocationWrapper">
-    <div class="locationContainer">
+  <div id="LocationWrapper">
+    <div id="locationContainer">
       <img src="../../public/Images/LocationColor.svg" />
-      <div class="locationText">
+      <div id="locationText">
         <div class="TextOrange">논현1동</div>
         주변 퍼스널 트레이너
       </div>
     </div>
-    <div class="filterContainer">
-      <div class="orderingBtn" @click="changeOrderingMode">
+    <div id="filterContainer">
+      <div id="orderingBtn" @click="changeOrderingMode">
         <div>추천순</div>
         <img src="../../public/Images/Dropdown_Down.svg" />
       </div>
-      <div class="filterBtn" @click="changeOrderingMode">
+      <div id="filterBtn" @click="changeOrderingMode">
         <img src="../../public/Images/Settings.svg" />
         <div class="TextOrange">필터 설정</div>
       </div>
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.LocationWrapper {
+#LocationWrapper {
   width: 480px;
   height: 64px;
   display: flex;
@@ -43,7 +43,7 @@ export default {
   color: #3d454d;
   gap: 54px;
 }
-.locationContainer {
+#locationContainer {
   display: flex;
   align-items: center;
   width: 212px;
@@ -61,7 +61,7 @@ export default {
   color: #ff8000;
 }
 
-.filterContainer {
+#filterContainer {
   display: flex;
   align-items: center;
   width: 180px;
@@ -77,10 +77,10 @@ export default {
     flex: none;
   }
 }
-.orderingBtn {
+#orderingBtn {
   padding: 0px 8px 0px 12px;
 }
-.filterBtn {
+#filterBtn {
   padding: 0px 12px 0px 8px;
 }
 </style>

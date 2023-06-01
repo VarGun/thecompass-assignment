@@ -1,5 +1,5 @@
 <template>
-  <div class="NoResult">
+  <div id="NoResult">
     <div>검색결과가 없습니다.</div>
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.NoResult {
+#NoResult {
   display: flex;
   justify-content: center;
   align-items: center;

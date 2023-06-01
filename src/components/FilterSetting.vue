@@ -1,6 +1,6 @@
 <template>
-  <div class="FilterSetting">
-    <div class="filterHeader">
+  <div id="FilterSetting">
+    <div id="filterHeader">
       <img
         src="../../public/Images/ArrowLeft.svg"
         @click="changeOrderingMode"
@@ -8,38 +8,38 @@
       <div class="textGrey">필터 초기화</div>
     </div>
     <hr class="underLine" />
-    <div class="filteringContainer">
+    <div id="filteringContainer">
       <div class="textBold">정렬</div>
-      <div class="radioContainer">
-        <div class="checkContainer">
+      <div id="radioContainer">
+        <div id="checkContainer">
           <img src="../../public/Images/Checked.svg" />
           <div class="textOrange">추천순</div>
         </div>
-        <div class="uncheckContainer">
+        <div id="uncheckContainer">
           <img src="../../public/Images/Unchecked.svg" />
           <div>거리순</div>
         </div>
       </div>
     </div>
     <hr />
-    <div class="rangeContainer">
-      <div class="textContainer">
+    <div id="rangeContainer">
+      <div id="textContainer">
         <div class="textBold">검색 반경</div>
         <div class="textOrange">1km 이내</div>
       </div>
-      <div class="barContainer">
-        <div class="barBackground" />
-        <div class="barRange">
-          <div class="barThumb" />
+      <div id="barContainer">
+        <div id="barBackground" />
+        <div id="barRange">
+          <div id="barThumb" />
         </div>
       </div>
       <div class="textGrey">500m</div>
     </div>
     <hr />
     <hr />
-    <div class="selectGender">
+    <div id="selectGender">
       <div class="textBold">트레이너 성별</div>
-      <div class="genderContainer">
+      <div id="genderContainer">
         <div>
           <img src="../../public/Images/Checked.svg" />
           <div class="textOrange">전체</div>
@@ -55,13 +55,13 @@
       </div>
     </div>
     <hr />
-    <div class="onlyFemaleCheck">
+    <div id="onlyFemaleCheck">
       <div class="textBold">여성 전문</div>
       <img src="../../public/Images/UncheckedBox.svg" />
     </div>
     <hr />
     <hr />
-    <div class="applyBtn">
+    <div id="applyBtn">
       <div class="textBold">필터 적용하기</div>
     </div>
   </div>
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.FilterSetting {
+#FilterSetting {
   width: 480px;
   display: flex;
   flex-direction: column;
@@ -119,13 +119,13 @@ export default {
   color: #6c7680;
 }
 
-.filterHeader {
+#filterHeader {
   color: #6c7680;
   margin-bottom: 16px;
 }
-.filteringContainer {
+#filteringContainer {
   font-weight: 700;
-  .radioContainer {
+  #radioContainer {
     display: flex;
     align-items: center;
     gap: 26px;
@@ -139,17 +139,17 @@ export default {
   }
 }
 
-.rangeContainer {
+#rangeContainer {
   flex-direction: column;
   gap: 16px;
   > div {
     width: 100%;
   }
-  .textContainer {
+  #textContainer {
     display: flex;
     gap: 12px;
   }
-  .barContainer {
+  #barContainer {
     position: relative;
     height: 36px;
     > div {
@@ -157,16 +157,16 @@ export default {
       height: 4px;
       border-radius: 4px;
     }
-    .barBackground {
+    #barBackground {
       width: 100%;
       background: #e4eaf0;
       z-index: 1;
     }
-    .barRange {
+    #barRange {
       width: 86px;
       background: #ff8000;
       z-index: 2;
-      .barThumb {
+      #barThumb {
         position: absolute;
         width: 12px;
         height: 12px;
@@ -179,7 +179,7 @@ export default {
     }
   }
 }
-.genderContainer {
+#genderContainer {
   display: flex;
   align-items: center;
   gap: 26px;
@@ -189,7 +189,7 @@ export default {
     gap: 10px;
   }
 }
-.applyBtn {
+#applyBtn {
   border-radius: 6px;
   background: #ff8000;
 

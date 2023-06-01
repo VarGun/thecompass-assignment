@@ -1,16 +1,16 @@
 <template>
-  <div class="TrainerCard">
+  <div id="TrainerCard">
     <img src="../../public/Images/TrainerImg.svg" />
-    <div class="TrainerInfo">
-      <div class="featureContainer">
-        <div class="onlyFemale" v-show="is_for_women">여성전문</div>
-        <div class="onlyOne" v-show="is_serve_welcome">1회체험</div>
+    <div id="TrainerInfo">
+      <div id="featureContainer">
+        <div id="onlyFemale" v-show="is_for_women">여성전문</div>
+        <div id="onlyOne" v-show="is_serve_welcome">1회체험</div>
       </div>
-      <div class="InfoContainer">
-        <div class="nameContainer" id="textBold">{{ name }} 트레이너</div>
-        <div class="gradeContainer">
+      <div id="InfoContainer">
+        <div id="nameContainer" class="textBold">{{ name }} 트레이너</div>
+        <div id="gradeContainer">
           {{ score }}
-          <div class="grades">
+          <div id="grades">
             <img
               v-for="i in score"
               :key="i"
@@ -22,26 +22,26 @@
               src="../../public/Images/StarEmpty.svg"
             />
           </div>
-          <div id="textGrey">({{ review }})</div>
+          <div class="textGrey">({{ review }})</div>
         </div>
-        <div class="trainerComment">
+        <div id="trainerComment">
           {{ introduce }}
         </div>
-        <div class="priceContainer">
+        <div id="priceContainer">
           <div>
-            <div id="textBigBold">63</div>
+            <div class="textBigBold">63</div>
             <!--            <div id="textBigBold">{{ discount_rate }}</div>-->
             %
           </div>
           <div>
-            <div id="textBigBold">{{ calc_price }}</div>
+            <div class="textBigBold">{{ calc_price }}</div>
             원
           </div>
           <div>
             <div>{{ price }}원</div>
           </div>
         </div>
-        <div class="trainerLocation">
+        <div id="trainerLocation">
           <img src="../../public/Images/LocationGrey.svg" />
           <div>{{ place }} · 논현역 도보 1분</div>
         </div>
@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.TrainerCard {
+#TrainerCard {
   display: flex;
   width: 480px;
   padding: 16px;
@@ -98,23 +98,23 @@ export default {
 }
 
 // font style
-#textBold {
+.textBold {
   font-weight: 700;
 }
-#textBigBold {
+.textBigBold {
   font-weight: 700;
   font-size: 18px;
 }
-#textGrey {
+.textGrey {
   color: #98a5b3;
 }
 
-.TrainerInfo {
+#TrainerInfo {
   flex: 1;
   height: 160px;
   position: relative;
   font-size: 16px;
-  .featureContainer {
+  #featureContainer {
     position: absolute;
     right: 0;
     display: flex;
@@ -130,16 +130,16 @@ export default {
       height: 24px;
       border-radius: 16px;
     }
-    .onlyFemale {
+    #onlyFemale {
       color: #ff3377;
       background: #ff337708;
     }
-    .onlyOne {
+    #onlyOne {
       color: #0080ff;
       background: #0080ff08;
     }
   }
-  .InfoContainer {
+  #InfoContainer {
     position: absolute;
     left: 0;
     top: 8px;
@@ -149,15 +149,15 @@ export default {
     > div {
       display: flex;
     }
-    .gradeContainer {
+    #gradeContainer {
       gap: 4px;
       align-items: center;
     }
-    .trainerComment {
+    #trainerComment {
       font-size: 14px;
       color: #3d454d;
     }
-    .priceContainer {
+    #priceContainer {
       gap: 8px;
       font-size: 12px;
       align-items: baseline;
@@ -175,7 +175,7 @@ export default {
         text-decoration-line: line-through;
       }
     }
-    .trainerLocation {
+    #trainerLocation {
       gap: 6px;
       font-size: 14px;
     }

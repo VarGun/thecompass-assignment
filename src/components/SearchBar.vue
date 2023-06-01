@@ -1,5 +1,5 @@
 <template>
-  <div class="SearchBar">
+  <div id="SearchBar">
     <input
       placeholder="지역명, 지하철역, 트레이너"
       @keydown="keyDownHandler"
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.SearchBar {
+#SearchBar {
   width: 480px;
   display: flex;
   height: 48px;

@@ -31,6 +31,11 @@
                     border:
                       pageNum === 1 ? '1px solid #6C7680' : '1px solid #ff8000',
                   }"
+
+                  :class="{ hover: pageNum !== 1 && hoverPrevious }"
+                  @mouseover="hoverPrevious = pageNum !== 1"
+                  @mouseleave="hoverPrevious = false"
+
                   @click="movePreviousPage"
                 >
                   Previous
@@ -44,6 +49,10 @@
                         ? '1px solid #ff8000'
                         : '1px solid #6C7680',
                   }"
+                  :class="{ hover: pageNum < endPage && hoverNext }"
+                  @mouseover="hoverNext = pageNum < endPage"
+                  @mouseleave="hoverNext = false"
+
                   @click="moveNextPage"
                 >
                   Next
@@ -83,7 +92,9 @@ export default {
       searchName: "",
       pageNum: 1,
       count: 1,
-      endPage:1
+      endPage:1,
+      hoverPrevious: false,
+      hoverNext: false
     };
   },
   created() {
@@ -120,7 +131,7 @@ export default {
           if(this.count !== 0){
             this.results = response.data.results;
           }
-          this.endPage = Math.floor(this.count / 10) + 1;
+          this.endPage = Math.floor(this.count % 10 === 0 ? this.count / 10 : this.count / 10 + 1)
           console.log("endPage : ",this.endPage)
           console.log("pageNum : ",this.pageNum)
 
@@ -136,6 +147,7 @@ export default {
       if (this.pageNum < this.endPage) {
         this.pageNum += 1;
         this.fetchData();
+        console.log("gun")
       } else {
         alert("마지막 페이지입니다.");
       }
@@ -235,5 +247,16 @@ export default {
     height: 40px;
     border-radius: 24px;
   }
+  #btnPrevious:hover{
+    color: #ffffff !important;
+    border: none !important;
+    background: #ff8000;
+  }
+  #btnNext:hover{
+    color: #ffffff !important;
+    border: none !important;
+    background: #ff8000;
+  }
+
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <div class="MainHeader">
-    <div class="headerSearch">
-      <div class="searchTrainer">트레이너 찾기</div>
+  <div id="MainHeader">
+    <div id="headerSearch">
+      <div id="searchTrainer">트레이너 찾기</div>
       <div class="searchOthers">피트니스 센터 찾기</div>
       <div class="searchOthers">PT스튜디오 찾기</div>
     </div>
-    <div class="userContainer">
+    <div id="userContainer">
       <img src="../../public/Images/UserIcon.svg" />
-      <div class="userName">김민수님</div>
+      <div id="userName">김민수님</div>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.MainHeader {
+#MainHeader {
   min-width: 100%;
   height: 84px;
   display: flex;
@@ -29,7 +29,7 @@ export default {
   box-shadow: 0px 4px 8px rgba(218, 224, 230, 0.38);
 
 }
-.headerSearch {
+#headerSearch {
   display: flex;
   height: 20px;
   gap: 36px;
@@ -40,11 +40,11 @@ export default {
     color: #6c7680;
     font-weight: 400;
   }
-  .searchTrainer {
+  #searchTrainer {
     color: #ff8000;
   }
 }
-.userContainer {
+#userContainer {
   display: flex;
   align-items: center;
   margin-right: 24px;
